@@ -132,7 +132,7 @@ export default function Sidebar({ lists, currentId, onSelect, onAdd, onRemove, o
     <aside className="h-full w-64 bg-slate-900 border-e border-slate-800 flex flex-col">
       <div className="px-4 py-4 flex items-center gap-2 text-slate-100 font-semibold border-b border-slate-800">
         <ListChecks size={20} className="text-sky-400" />
-        Tasks Manager
+        המשימות של דור
       </div>
 
       <div className="flex-1 overflow-y-auto py-2">

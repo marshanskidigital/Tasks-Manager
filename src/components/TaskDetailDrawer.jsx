@@ -10,6 +10,7 @@ import VoiceInputButton from './VoiceInputButton.jsx';
 import ListPickerPopover from './ListPickerPopover.jsx';
 import { STATUS_LABELS, STATUSES, toDate } from '../lib/taskHelpers';
 import { extractImagesFromClipboard, uploadTaskPhoto } from '../lib/photoStorage';
+import { serverTimestamp } from 'firebase/firestore';
 
 export default function TaskDetailDrawer({ task, allTags, lists, currentListId, onClose, onUpdate, onMove, onRemove }) {
   const [draft, setDraft] = useState(task);
@@ -45,7 +46,7 @@ export default function TaskDetailDrawer({ task, allTags, lists, currentListId, 
       <aside className="absolute end-0 top-0 h-full w-full sm:max-w-md bg-slate-900 border-s border-slate-800 shadow-2xl flex flex-col animate-in slide-in-from-left">
         <header className="flex items-center justify-between px-4 py-3 border-b border-slate-800">
           <div className="flex items-center gap-2">
-            <TaskCheckCircle status={draft.status} onChange={(s) => save({ status: s, completed: s === 'done' })} />
+            <TaskCheckCircle status={draft.status} onChange={(s) => save({ status: s, completed: s === 'done', completedAt: s === 'done' ? serverTimestamp() : null })} />
             <span className="text-sm text-slate-400">{STATUS_LABELS[draft.status]}</span>
           </div>
           <div className="flex items-center gap-1">
@@ -85,7 +86,7 @@ export default function TaskDetailDrawer({ task, allTags, lists, currentListId, 
               {STATUSES.map((s) => (
                 <button
                   key={s}
-                  onClick={() => save({ status: s, completed: s === 'done' })}
+                  onClick={() => save({ status: s, completed: s === 'done', completedAt: s === 'done' ? serverTimestamp() : null })}
                   className={`flex-1 text-xs py-1.5 rounded-md border transition ${
                     draft.status === s ? 'bg-sky-500 border-sky-500 text-white' : 'border-slate-700 text-slate-300 hover:bg-slate-800'
                   }`}

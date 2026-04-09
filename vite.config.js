@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'Tasks Manager',
-        short_name: 'Tasks',
+        name: 'המשימות של דור',
+        short_name: 'המשימות',
         description: 'Simple shared work task tracker',
         theme_color: '#0f172a',
         background_color: '#0f172a',

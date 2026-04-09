@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Calendar, StickyNote, Image } from 'lucide-react';
+import { Calendar, StickyNote, Image, Check } from 'lucide-react';
 import { format } from 'date-fns';
 import TaskCheckCircle from './TaskCheckCircle.jsx';
 import { PRIORITY_COLORS } from './PriorityPicker.jsx';
@@ -110,6 +110,11 @@ export default function KanbanCard({ task, onSetStatus, onOpen, onUpdate, onCont
             </span>
           )}
           {task.notes && <StickyNote size={11} className="text-slate-500" />}
+        </div>
+      )}
+      {task.status === 'done' && toDate(task.completedAt) && (
+        <div className="text-[10px] text-slate-500 ps-6 flex items-center gap-1">
+          <Check size={9} /> Completed {format(toDate(task.completedAt), 'MMM d, h:mm a')}
         </div>
       )}
     </div>

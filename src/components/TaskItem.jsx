@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Trash2, StickyNote, Calendar, Image } from 'lucide-react';
+import { Trash2, StickyNote, Calendar, Image, Check } from 'lucide-react';
 import { format } from 'date-fns';
 import TaskCheckCircle from './TaskCheckCircle.jsx';
 import { PRIORITY_COLORS } from './PriorityPicker.jsx';
@@ -99,6 +99,11 @@ export default function TaskItem({ task, onSetStatus, onRemove, onOpen, onUpdate
           )}
           {task.notes && <StickyNote size={12} className="text-slate-500" />}
         </div>
+        {task.status === 'done' && toDate(task.completedAt) && (
+          <div className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
+            <Check size={10} /> Completed {format(toDate(task.completedAt), 'MMM d, h:mm a')}
+          </div>
+        )}
       </div>
 
       <button

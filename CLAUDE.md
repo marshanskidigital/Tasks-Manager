@@ -1,4 +1,4 @@
-# Tasks Manager
+# המשימות של דור
 
 A real-time, collaborative task management PWA built with React, Vite, Firebase, and Tailwind CSS.
 
