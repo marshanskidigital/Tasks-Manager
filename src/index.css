@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Theme color tokens ---- */
+:root, html.dark {
+  /* Slate scale (dark theme = Tailwind defaults) */
+  --slate-50:  248 250 252;
+  --slate-100: 241 245 249;
+  --slate-200: 226 232 240;
+  --slate-300: 203 213 225;
+  --slate-400: 148 163 184;
+  --slate-500: 100 116 139;
+  --slate-600: 71 85 105;
+  --slate-700: 51 65 85;
+  --slate-800: 30 41 59;
+  --slate-900: 15 23 42;
+  --slate-950: 2 6 23;
+
+  /* Accent text shades (dark theme defaults) */
+  --sky-300: 125 211 252;
+  --sky-400: 56 189 248;
+  --red-300: 252 165 165;
+  --red-400: 248 113 113;
+  --amber-300: 252 211 77;
+  --amber-400: 251 191 36;
+  --emerald-300: 110 231 183;
+  --emerald-400: 52 211 153;
+  --green-300: 134 239 172;
+  --green-400: 74 222 128;
+}
+
+html.light {
+  /* Slate: inverted for light mode */
+  --slate-50:  17 24 39;
+  --slate-100: 17 24 39;
+  --slate-200: 31 41 55;
+  --slate-300: 55 65 81;
+  --slate-400: 75 85 99;
+  --slate-500: 107 114 128;
+  --slate-600: 156 163 175;
+  --slate-700: 209 213 219;
+  --slate-800: 229 231 235;
+  --slate-900: 243 244 246;
+  --slate-950: 255 255 255;
+
+  /* Accent text: darkened for readability on light bg */
+  --sky-300: 2 132 199;
+  --sky-400: 2 132 199;
+  --red-300: 220 38 38;
+  --red-400: 220 38 38;
+  --amber-300: 217 119 6;
+  --amber-400: 217 119 6;
+  --emerald-300: 5 150 105;
+  --emerald-400: 5 150 105;
+  --green-300: 22 163 74;
+  --green-400: 22 163 74;
+}
+
+html, body, #root { height: 100%; }
+
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+@keyframes voice-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+.voice-recording { animation: voice-pulse 1.5s ease-in-out infinite; }
